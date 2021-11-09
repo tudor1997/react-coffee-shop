@@ -9,6 +9,7 @@ import {UserProvider} from './context/user'
 
 ReactDOM.render(
   <React.StrictMode>
+    
     <UserProvider>
     <ProductProvider>
     <CartProvider>

@@ -1,5 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+// impt PropTypes
+import PropTypes from 'prop-types'
+
 const Product = ({image, title, id , price}) => {
     
     return (
@@ -15,5 +18,10 @@ const Product = ({image, title, id , price}) => {
     </div>
     )
 }
-
+Product.prototype = {
+    image:PropTypes.string.isRequired,
+    title:PropTypes.string.isRequired,
+    price:PropTypes.number.isRequired,
+    id:PropTypes.number.isRequired
+}
 export default Product

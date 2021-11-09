@@ -18,12 +18,14 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Alert from './components/Alert';
 import PrivateRoute from './components/PrivateRoute';
+import ScrollButton from './components/ScrollButton';
 
 function App() {
   return (
  <Router>
    <Header/>
    <Alert />
+   <ScrollButton />
    <Switch>
      <Route exact path="/">
        <Home/>
