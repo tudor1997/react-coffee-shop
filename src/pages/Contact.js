@@ -17,7 +17,9 @@ const Contact = () => {
 
 async function handleSubmit(e) {
     e.preventDefault();
-    const messageSubmit = await submitMessage({name, email, message ,setAlert});
+    if(name && email && message && name !== "" && email !== "" && message !==""){
+      await submitMessage({name, email, message ,setAlert});
+    } 
     setTimeout(() =>{
         setAlert(false)
         setName("");

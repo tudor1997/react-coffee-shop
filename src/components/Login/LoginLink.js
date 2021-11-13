@@ -16,7 +16,10 @@ const LoginLink = () => {
     }>Logout</button>
     }
     return (
-       <Link to="/login" className="link">Login</Link>
+        <li>
+            <Link to="/login" className="link">Login</Link>
+        </li>
+   
     )
 }
 

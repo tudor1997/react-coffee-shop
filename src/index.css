@@ -983,6 +983,11 @@ transition:all .2s ease-in-out;
 .amount{
   font-size:20px;
 }
+@media screen and (max-width:568px){
+  .cartItem{
+    width:90%;
+  }
+}
 /* end of cart item component */
 
 /* login page */
