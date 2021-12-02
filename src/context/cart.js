@@ -1,6 +1,8 @@
 import React from 'react'
+import reducer from './reducer';
 
-
+// Actions
+import {REMOVE,INCREASE,DECREASE,ADDTOCART,CLEARCART} from './actions';
 const CartContext = React.createContext();
 
 function getCartFromLocalStorage() {
@@ -8,8 +10,10 @@ function getCartFromLocalStorage() {
     : []
 }
 
+
+
 const CartProvider = ({children}) => {
-    const [cart, setCart] = React.useState(getCartFromLocalStorage());
+    const [cart, dispatch] = React.useReducer(reducer,getCartFromLocalStorage());
     const [total, setTotal] = React.useState(0);
     const [cartItems, setCartItems] = React.useState(0);
 
@@ -33,44 +37,53 @@ const CartProvider = ({children}) => {
 
     // remove items 
     const removeItem = (id) => {
-        setCart([...cart].filter((item) => item.id !== id));
+        dispatch({
+            type:REMOVE,
+            payload:id
+        })
     }
     // increase amount
     const increaseAmount = (id) => {
-        const newCart = [...cart].map((item) => {
-         return item.id === id ? {...item, amount:item.amount + 1} : {...item};
+        dispatch({
+            type:INCREASE,
+            payload:id
         })
-        setCart(newCart);
     }
     // decrease amount
     const decreaseAmount = (id,amount) => {
+    
         if(amount === 1){
-            removeItem(id)
-            return;
+            dispatch({
+                type:REMOVE,
+                payload:id
+            })
         }else{
-            const newCart = [...cart].map((item) => {
-                return item.id === id ? {...item, amount:item.amount - 1} : {...item};
-               })
-               setCart(newCart);
+            dispatch({
+                type:DECREASE,
+                payload:id
+            })      
         }
     }
     // add to cart
     const addToCart = (product) => {
-      
-       const {id, image, title, price} = product;
-       const item = [...cart].find(item => item.id === id);
-       if(item){
-           increaseAmount(id);
-       }else{
-           const newItem = {id, image, title, price, amount:1};
-           const newCart = [...cart, newItem];
-           
-           setCart(newCart);
-       }
+        let item = [...cart].find(item => item.id === product.id);
+        if(item){
+            dispatch({
+                type:INCREASE,
+                payload:product.id
+            })
+        }else{
+            dispatch({
+                type:ADDTOCART,
+                payload:product
+            })
+        }  
     }
     // clear cart
     const clearCart = () => {
-        setCart([]);
+       dispatch({
+           type:CLEARCART
+       })
     }
 
     return (
