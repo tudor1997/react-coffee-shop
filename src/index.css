@@ -577,7 +577,30 @@ padding:20px;
     font-size:14px;
   }
 }
-
+.loading-gallery{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:var(--buttons-color);
+  color:var(--main-dark-background-color);
+}
+.loading-text{
+  font-size:55px;
+  font-family:var(--third-font);
+  letter-spacing:5px;
+  opacity:0;
+  animation: loading-text 2s linear infinite alternate; 
+}
+@keyframes loading-text {
+  0%{
+    opacity:0;
+    
+  }
+  100%{
+    opacity:1;
+    color:white;
+  }
+}
 /*  end of gallery section */
 /* end of home page */
 
