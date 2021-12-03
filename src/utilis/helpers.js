@@ -15,3 +15,16 @@ export function featuredProducts(data){
         return item.featured === true;
     })
 }
+
+// Paginate
+export function paginate(products) {
+    const itemPerPage = 5;
+    const numberOfPages = Math.ceil(products.length / itemPerPage);
+
+    const newProducts = Array.from({length: numberOfPages},(_,index)=>{
+        const start = index * itemPerPage
+        return products.slice(start,start + itemPerPage)
+    })
+  
+    return newProducts;
+}

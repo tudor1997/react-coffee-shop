@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fruktur&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 :root{
   --main-color:#eeeeee;
   --main-dark-background-color:#222831;
@@ -8,6 +9,7 @@
   --buttons-color:#c0aa83;
   --main-font:"Montserrat" , sans-serif;
   --second-font:"Fruktur", sans-serif;
+  --third-font:'Roboto',sans-serif;
 }
 
 
@@ -17,6 +19,24 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 section{
   width: 100%;
@@ -735,12 +755,186 @@ padding:20px;
 .product-title{
   margin:10px 0px;
   font-weight: 600;
+  letter-spacing:3px;
 }
 .product-price{
   color:var(--main-light-color);
   font-weight: 500;
 }
+.search-error-section{
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+  flex-direction:column;
+  width:100%;
+  height:90vh;
+  background-color:#adabaa;
+}
+.search-errors{
+  font-family: var(--main-font);
+  font-size:22px;
+  color:black;
+  text-align:center;
+}
+.pagination-buttons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:var(--background-color);
+  padding:20px;
+}
+.page-btn{
+  border:none;
+  margin:10px;
+  font-size:26px;
+  color:var(--main-light-color);
+  background-color:#adabaa;
+  padding:7px;
+  font-weight: 600;
+  font-family:var(--third-font);
+  cursor:pointer;
+  border-radius:5px;
+  transition:all .3s ease-in-out;
+}
+.page-btn:hover{
+  color:var(--buttons-color);
+  background-color:var(--second-dark-background-color);
+}
+.page-btn-current{
+  color:var(--buttons-color);
+  background-color:var(--second-dark-background-color);
+  box-shadow:1px 1px 5px #000;;
+}
+.prev-page-btn , .next-page-btn {
+  display:flex;
+  align-items:center;
+  border:none;
+  font-size:30px;
+  background-color:#adabaa;
+  color:var(--main-light-color);
+  cursor:pointer;
+  transition:all .3s ease-in-out;
+  padding:7px;
+  border-radius:5px;
+  
+}
+.prev-page-btn:hover , .next-page-btn:hover{
+  color:var(--main-color);
+  background-color:var(--second-dark-background-color);
+}
 
+.filters-section{
+  width:100%;
+  min-height:200px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background-color:#adabaa;
+}
+.filter-title{
+  font-size:30px;
+  margin:20px;
+  font-family:var(--second-font);
+  letter-spacing:3px;
+
+}
+
+.filter-total-products{
+  font-size:20px;
+  margin-top:10px;
+  font-family:var(--main-font);
+  font-weight: 600;
+  letter-spacing:2px;
+}
+.filters-form{
+  width:60%;
+  display:flex;
+ 
+  flex-direction:column;
+  align-items:center;
+}
+hr{
+  width:60%;
+}
+.form-group{
+  display:flex;
+  width:70%;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  
+}
+.form-group label{
+  font-family:var(--main-font);
+  margin-right:10px;
+  font-weight: 600;
+}
+.form-control{
+  width:40%;
+  min-width:200px;
+  padding:3px;
+  border-radius:4px;
+  font-family:var(--main-font);
+  font-size:16px;
+  border:none;
+  transition:all .2s ease-in-out;
+}
+.form-control:focus{
+  outline:1px solid var(--main-light-color);
+}
+
+.price-group{
+  display:flex;
+  flex-direction:column;
+  width:35%;
+  min-width:250px;
+  align-self:center;
+  align-items:center;
+  min-height:200px;
+  background-color:var(--second-dark-background-color);
+  color:var(--main-color);
+  margin:5px;
+  border-radius:7px;
+  justify-content:space-evenly;
+  font-family:var(--third-font);
+}
+.price-group p {
+  font-size:17px;
+}
+.price-group label{
+  display:flex;
+  width:35%;
+  align-items:center;
+  justify-content:flex-start;
+  font-size:17px;
+ 
+}
+
+input[type="radio"]{
+  margin-right:6px;
+  cursor:pointer;
+  -webkit-appearance: none;
+  color:var(--buttons-color);
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--buttons-color);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--buttons-color);
+}
+input[type="radio"]:checked::before {
+  transform: scale(1);
+  background-color:var(--buttons-color);
+}
 /* end of  Product list component */
 
 /* single product  */

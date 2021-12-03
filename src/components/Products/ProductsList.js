@@ -2,11 +2,11 @@ import React from 'react'
 import Product from './Product'
 
 
-const ProductsList = ({title, products}) => {
+const ProductsList = ({products,title}) => {
     return (
         <section className="products-list">
-           <h2 className="section-title">{title}</h2>
-
+            <h1 className="filter-title">{title}</h1>
+  
            <div className="products-container">
             {products.map((product)=>{
                 return (
