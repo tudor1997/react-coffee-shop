@@ -13,10 +13,10 @@ const FiltersProducts = () => {
             <form className="filters-form">
         
                 {/* search input */}
-                <div className="form-group">
+                <div className="form-group-filter">
                     <label htmlFor="search">Search Term</label>
                     <input type="text" id="search" name="search" 
-                    value={search} onChange={updateFilters} className="form-control" />
+                    value={search} onChange={updateFilters} className="form-control-filter" />
                 </div>
                 {/* end of search input */}
           

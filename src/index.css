@@ -879,7 +879,7 @@ padding:20px;
 hr{
   width:60%;
 }
-.form-group{
+.form-group-filter{
   display:flex;
   width:70%;
   flex-wrap:wrap;
@@ -892,7 +892,7 @@ hr{
   margin-right:10px;
   font-weight: 600;
 }
-.form-control{
+.form-control-filter{
   width:40%;
   min-width:200px;
   padding:3px;
@@ -902,7 +902,7 @@ hr{
   border:none;
   transition:all .2s ease-in-out;
 }
-.form-control:focus{
+.form-control-filter:focus{
   outline:1px solid var(--main-light-color);
 }
 
